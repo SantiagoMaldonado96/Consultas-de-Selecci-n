@@ -57,7 +57,20 @@ From Cursos
 Where ID in (1, 5, 9, 10)
 
 --11 Listado con nombre, fecha de estreno y costo de cursado de los tres cursos más caros de certificar.
---12 Listado con nombre, duración y número de todas las clases de los cursos con ID 2, 5 y 7. Ordenados por ID de Curso ascendente y luego por número de clase ascendente.
+
+Select top 3 Nombre, Estreno, CostoCurso
+From Cursos
+Order By CostoCertificacion desc
+
+
+--12 Listado con nombre, duración y número de todas las clases de los cursos con ID 2, 5 y 7. 
+--   Ordenados por ID de Curso ascendente y luego por número de clase ascendente.
+
+Select Nombre, Duracion, Numero
+From Clases
+Where IDCurso in (2, 5, 7)
+Order By IDCurso asc, Numero asc
+
 --13 Listado con nombre y fecha de estreno de todos los cursos cuya fecha de estreno haya sido en el primer semestre del año 2019.
 --14 Listado de cursos cuya fecha de estreno haya sido en el año 2020.
 --15 Listado de cursos cuyo mes de estreno haya sido entre el 1 y el 4.
