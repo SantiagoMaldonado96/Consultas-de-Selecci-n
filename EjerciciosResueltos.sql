@@ -72,11 +72,42 @@ Where IDCurso in (2, 5, 7)
 Order By IDCurso asc, Numero asc
 
 --13 Listado con nombre y fecha de estreno de todos los cursos cuya fecha de estreno haya sido en el primer semestre del año 2019.
+
+Select Nombre, Estreno
+From Cursos
+Where YEAR(Estreno) = 2019 and MONTH(Estreno) between 1 and 6
+
 --14 Listado de cursos cuya fecha de estreno haya sido en el año 2020.
+
+Select ID, IDNivel, Nombre, CostoCurso, CostoCertificacion, Estreno
+From Cursos
+Where YEAR(Estreno) = 2020
+
 --15 Listado de cursos cuyo mes de estreno haya sido entre el 1 y el 4.
+
+Select ID, IDNivel, Nombre, CostoCurso, CostoCertificacion, Estreno
+From Cursos
+Where MONTH(Estreno) between 1 and 4
+
 --16 Listado de clases cuya duración se encuentre entre 15 y 90 minutos.
+
+Select ID, IDCurso, Nombre, Numero, Duracion
+From Clases
+Where Duracion between 15 and 90
+
 --17 Listado de contenidos cuyo tamaño supere los 5000MB y sean de tipo 4 o sean menores a 400MB y sean de tipo 1.
+
+Select ID, IDClase, IDTipo, Tamaño
+From Contenidos
+Where Tamaño > 5000 and IDTipo = 4 or Tamaño < 400 and IDTipo = 1
+Order By IDTipo
+
 --18 Listado de cursos que no posean ID de nivel.
+
+Select ID, IDNivel, Nombre, CostoCurso, CostoCertificacion, Estreno
+From Cursos
+Where IDNivel is null
+
 --19 Listado de cursos cuyo costo de certificación corresponda al 20% o más del costo del curso.
 --20 Listado de costos de cursado de todos los cursos sin repetir y ordenados de mayor a menor.
 
